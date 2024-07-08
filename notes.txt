@@ -1,0 +1,54 @@
+JenniferTTran@dayrep.com
+Iem4XohH
+Jennifer T. Tran
+
+--
+
+OAuth
+Avatar update in login
+Marketing message 
+
+--
+
+Auth pages
+Dashboard
+Profile page
+Expenses page
+Budget page
+Categories page
+Settings page
+
+--
+
+Expenses page
+
+Add expense
+Edit expense
+Delete expense
+View expense
+View expense history
+View expense categories
+View expense categories history
+
+--
+
+Budget page
+
+Add budget
+Edit budget
+Delete budget
+View budget
+View budget history
+View budget categories
+View budget categories history
+
+--
+
+Categories page
+
+Add category
+Edit category
+Delete category
+View category
+View category history
+
