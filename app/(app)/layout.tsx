@@ -18,7 +18,7 @@ export default async function AppLayout({
   return (
     <div className="mx-auto flex h-full w-full max-w-screen-lg flex-col gap-4 py-4">
       <Header />
-      <section>{children}</section>;
+      <section>{children}</section>
     </div>
   );
 }

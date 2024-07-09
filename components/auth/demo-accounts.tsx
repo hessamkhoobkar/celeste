@@ -21,7 +21,7 @@ export default function DemoAccounts() {
         <Card className="w-full">
           <CardContent className="flex w-full flex-row justify-between p-4">
             <div className="flex gap-2">
-              <Avatar className="h-12 w-12 rounded-md">
+              <Avatar className="h-12 w-12">
                 <AvatarImage
                   src="/img/jen-profile.jpg"
                   alt="Jennifer T. Tran"
@@ -31,12 +31,10 @@ export default function DemoAccounts() {
                     src="/img/jen-profile.jpg"
                     alt="Jennifer T. Tran"
                     fill
-                    className="h-12 w-12 rounded-md"
+                    className="h-12 w-12"
                   />
                 </AvatarImage>
-                <AvatarFallback className="h-12 w-12 rounded-md">
-                  JT
-                </AvatarFallback>
+                <AvatarFallback className="h-12 w-12">JT</AvatarFallback>
               </Avatar>
               <div className="flex flex-col gap-2">
                 <p>Jennifer T. Tran</p>

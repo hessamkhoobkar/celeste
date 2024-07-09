@@ -4,9 +4,10 @@ Jennifer T. Tran
 
 --
 
+add and edit expenses
+user feedback
+loading states
 OAuth
-Avatar update in login
-Marketing message 
 
 --
 
