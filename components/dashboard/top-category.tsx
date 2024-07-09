@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { Boxes } from "lucide-react";
 
 export default function TopCategory({
   categoriesAmount,
@@ -15,7 +16,9 @@ export default function TopCategory({
   return (
     <Card className="w-1/2">
       <CardContent className="flex flex-1 items-center justify-start gap-4 p-4">
-        <div className="h-12 w-12 rounded-md bg-primary"></div>
+        <div className="flex h-12 w-12 items-center justify-center rounded-md bg-primary">
+          <Boxes className="h-6 w-6 text-white" />
+        </div>
         <div className="flex flex-col">
           <p>
             You have spent ${highestAmountObject.categoryAmount} on

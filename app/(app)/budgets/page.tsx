@@ -1,6 +1,7 @@
 import BudgetForm from "@/components/budget-form";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Toaster } from "@/components/ui/sonner";
 import { Terminal } from "lucide-react";
 
 export default function BudgetsPage() {
@@ -23,6 +24,7 @@ export default function BudgetsPage() {
           <BudgetForm />
         </CardContent>
       </Card>
+      <Toaster />
     </div>
   );
 }

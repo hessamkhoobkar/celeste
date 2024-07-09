@@ -1,21 +1,10 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
-import { MoreHorizontal, Pencil, Trash } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import CategoryBadge from "@/components/utils/category-badge";
 import Link from "next/link";
-import { createClient } from "@/lib/supabase/client";
-import { Router } from "next/router";
 
 // This type is used to define the shape of our data.
 export type Expense = {
@@ -104,7 +93,9 @@ export const columns: ColumnDef<Expense>[] = [
 
       return (
         <Link className="flex w-full" href={`/expenses/${expense.id}`}>
-          <Button variant="outline">View</Button>
+          <Button variant="outline">
+            <span>View</span>
+          </Button>
         </Link>
       );
     },

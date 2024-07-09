@@ -18,10 +18,11 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { toast } from "@/components/ui/use-toast";
 import { Database } from "@/types/database.types";
 import { LoaderCircle } from "lucide-react";
 import { Skeleton } from "./ui/skeleton";
+import { Toaster } from "@/components/ui/toaster";
+import { useToast } from "@/components/ui/use-toast";
 
 const FormSchema = z.object({
   amount: z.preprocess(
@@ -38,6 +39,8 @@ export default function BudgetForm() {
   const [budgetId, setBudgetId] = useState<string | null>(null);
   const [request, setRequest] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
+
+  const { toast } = useToast();
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -56,6 +59,17 @@ export default function BudgetForm() {
     if (budget) {
       setRequest(false);
       form.setValue("amount", budget[0].amount);
+
+      toast({
+        title: "Budget got updated!",
+        description: new Date().toLocaleDateString(undefined, {
+          hour: "numeric",
+          minute: "numeric",
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        }),
+      });
     }
   }
 
@@ -102,35 +116,41 @@ export default function BudgetForm() {
       </div>
     </div>
   ) : (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
-        <FormField
-          control={form.control}
-          name="amount"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Budget Amount:</FormLabel>
-              <FormControl>
-                <Input type="number" placeholder="Amount" {...field} />
-              </FormControl>
-              <FormDescription>
-                This is your total budget for the month.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit" disabled={request}>
-          {request ? (
-            <>
-              <LoaderCircle className="mr-2 h-4 w-4 animate-spin" />
-              <span>Updating...</span>
-            </>
-          ) : (
-            "Update"
-          )}
-        </Button>
-      </form>
-    </Form>
+    <>
+      <Form {...form}>
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="w-2/3 space-y-6"
+        >
+          <FormField
+            control={form.control}
+            name="amount"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Budget Amount:</FormLabel>
+                <FormControl>
+                  <Input type="number" placeholder="Amount" {...field} />
+                </FormControl>
+                <FormDescription>
+                  This is your total budget for the month.
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button type="submit" disabled={request}>
+            {request ? (
+              <>
+                <LoaderCircle className="mr-2 h-4 w-4 animate-spin" />
+                <span>Updating...</span>
+              </>
+            ) : (
+              "Update"
+            )}
+          </Button>
+        </form>
+      </Form>
+      <Toaster />
+    </>
   );
 }

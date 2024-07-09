@@ -8,16 +8,29 @@ import { Button } from "@/components/ui/button";
 import { GoogleIcon } from "@/assets/icons/google-icon";
 import { GithubIcon } from "@/assets/icons/github-icon";
 import { GitlabIcon } from "@/assets/icons/gitlab-icon";
+import { useState } from "react";
+import { LoaderCircle } from "lucide-react";
 
 export default function OAuth() {
   const supabase = createClient();
   const router = useRouter();
 
+  const [googleLoading, setGoogleLoading] = useState(false);
+  const [githubLoading, setGithubLoading] = useState(false);
+  const [gitlabLoading, setGitlabLoading] = useState(false);
+
+  const BASE_URL =
+    process.env.NODE_ENV === "production"
+      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+      : "http://localhost:3000";
+
   async function signInWithGithub() {
+    setGithubLoading(true);
+
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "github",
       options: {
-        redirectTo: `http://example.com/auth/callback`,
+        redirectTo: `${BASE_URL}/auth/callback`,
       },
     });
 
@@ -31,10 +44,12 @@ export default function OAuth() {
   }
 
   async function signInWithGoogle() {
+    setGoogleLoading(true);
+
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: `http://example.com/auth/callback`,
+        redirectTo: `${BASE_URL}/auth/callback`,
       },
     });
 
@@ -48,10 +63,11 @@ export default function OAuth() {
   }
 
   async function signInWithGitlab() {
+    setGitlabLoading(true);
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "gitlab",
       options: {
-        redirectTo: `http://example.com/auth/callback`,
+        redirectTo: `${BASE_URL}/auth/callback`,
       },
     });
 
@@ -67,34 +83,58 @@ export default function OAuth() {
   return (
     <section className="flex w-full flex-col items-center justify-center gap-2">
       <Button
-        disabled
         onClick={() => signInWithGoogle()}
         variant="outline"
         size="lg"
         className="h-12 w-full gap-2"
       >
-        <GoogleIcon className="h-6 w-6" />
-        <span>Sign in with Google</span>
+        {googleLoading ? (
+          <>
+            <LoaderCircle className="animate-spin" />
+            <span className="text-xs">Logging in...</span>
+          </>
+        ) : (
+          <>
+            <GoogleIcon className="h-6 w-6" />
+            <span>Sign in with Google</span>
+          </>
+        )}
       </Button>
       <Button
-        disabled
         onClick={() => signInWithGithub()}
         variant="outline"
         size="lg"
         className="h-12 w-full gap-2"
       >
-        <GithubIcon className="h-6 w-6" />
-        <span>Sign in with GitHub</span>
+        {githubLoading ? (
+          <>
+            <LoaderCircle className="animate-spin" />
+            <span className="text-xs">Logging in...</span>
+          </>
+        ) : (
+          <>
+            <GithubIcon className="h-6 w-6" />
+            <span>Sign in with GitHub</span>
+          </>
+        )}
       </Button>
       <Button
-        disabled
         onClick={() => signInWithGitlab()}
         variant="outline"
         size="lg"
         className="h-12 w-full gap-2"
       >
-        <GitlabIcon className="h-6 w-6" />
-        <span>Sign in with GitLab</span>
+        {gitlabLoading ? (
+          <>
+            <LoaderCircle className="animate-spin" />
+            <span className="text-xs">Logging in...</span>
+          </>
+        ) : (
+          <>
+            <GitlabIcon className="h-6 w-6" />
+            <span>Sign in with GitLab</span>
+          </>
+        )}
       </Button>
     </section>
   );

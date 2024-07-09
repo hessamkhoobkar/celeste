@@ -23,6 +23,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import Link from "next/link";
 import CategorySelect from "@/components/category/category-select";
+import { LoaderCircle } from "lucide-react";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -35,6 +36,8 @@ export function DataTable<TData, TValue>({
 }: DataTableProps<TData, TValue>) {
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("");
+
+  const [linkLoading, setLinkLoading] = useState<boolean>(false);
 
   const table = useReactTable({
     data,
@@ -71,7 +74,16 @@ export function DataTable<TData, TValue>({
           </Button>
         </div>
         <Link href="/expenses/new">
-          <Button>Add Expense</Button>
+          <Button onClick={() => setLinkLoading(true)}>
+            {linkLoading ? (
+              <>
+                <LoaderCircle className="mr-2 h-4 w-4 animate-spin" />
+                <span>loading...</span>
+              </>
+            ) : (
+              <span>Add Expense</span>
+            )}
+          </Button>
         </Link>
       </div>
       <div className="overflow-hidden rounded-md border">
