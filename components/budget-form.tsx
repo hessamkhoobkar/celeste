@@ -53,8 +53,6 @@ export default function BudgetForm() {
       .eq("id", budgetId)
       .select();
 
-    console.log(budget);
-
     if (budget) {
       setRequest(false);
       form.setValue("amount", budget[0].amount);

@@ -65,9 +65,6 @@ export default async function Home() {
     ?.reduce((acc, item) => acc + item.amount, 0)
     .toFixed(2);
 
-  console.log(juneExpensesAmount);
-  console.log(julyExpensesAmount);
-
   if (julyExpenses) {
     julyExpenses.forEach((item) => {
       const categoryName = item.categories.name;

@@ -53,8 +53,6 @@ export default function CurrentBudget({
     return expensesPercentage;
   }, [budget, expenses]);
 
-  console.log(expensesPercentage);
-
   return (
     <Card className="flex w-1/3 flex-col">
       <CardHeader className="pb-0">
