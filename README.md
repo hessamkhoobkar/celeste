@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+# Stride
+
+Take control of your finances with **Celeste**, the all-in-one budget and expense tracking application designed to simplify your money management. Whether you're saving for a dream vacation, paying off debt, or just want to stay on top of your daily spending, Celeste offers a suite of powerful tools to help you achieve your financial goals.
+
+## Key Features: 
+
+- **Comprehensive Budgeting**: Set up monthly budgets tailored to your needs. Track your spending against these budgets in real time to ensure you stay within your limits.
+- **Expense Tracking**: Log your expenses effortlessly with our intuitive interface. Categorize your spending and add notes for a detailed financial record.
+- **Customizable Categories**: Organize your finances your way with customizable categories. Create and edit categories to suit your unique spending habits and preferences.
+- **User-Friendly Interface**: Celeste is designed to be easy to use, with a clean and intuitive interface that makes managing your finances a breeze.
+
+## Technologies Used
+
+- **Frontend**: [Next.js](https://nuxtjs.org/) - A progressive framework based on React.js.
+- **Backend**: [Supabase](https://supabase.io/) - A powerful open-source Firebase alternative.
+- **Styling**: 
+  - [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework.
+  - [Radix](https://www.radix-ui.com/) - Primitives for building high-quality, accessible design systems and web apps.
+  - [shadcn](https://shadcn.dev/) - A component library for Tailwind CSS.
+- **Form Validation**: [Zod](https://yep.dev/) - A lightweight validation library.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Before you begin, ensure you have met the following requirements:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Node.js and npm installed
+- Supabase account and project set up
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Clone the repository:
 
-## Learn More
+    ```sh
+    git clone https://github.com/hessamkhoobkar/celeste
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Navigate to the project directory:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    ```sh
+    cd stride
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+3. Install dependencies:
 
-## Deploy on Vercel
+    ```sh
+    pnpm install
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Set up environment variables:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    Create a `.env` file in the root directory and add your Supabase credentials:
+
+    ```sh
+    SUPABASE_URL=your-supabase-url
+    SUPABASE_KEY=your-supabase-key
+    ```
+
+### Running the Application
+
+1. Start the development server:
+
+    ```sh
+    pnpm dev
+    ```
+
+2. Open your browser and navigate to:
+
+    ```
+    http://localhost:3000
+    ```
+
+### Building for Production
+
+1. Build the application:
+
+    ```sh
+    pnpm build
+    ```
+
+2. Start the production server:
+
+    ```sh
+    pnpm preview
+    ```
+
+## Contributing
+
+Contributions are welcome! Follow these steps to contribute:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add some feature'`).
+5. Push to the branch (`git push origin feature-branch`).
+6. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+Thank you for using Stride! We hope it enhances your team's productivity and collaboration.
