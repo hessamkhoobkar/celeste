@@ -1,9 +1,10 @@
+![celeste-cover](https://github.com/hessamkhoobkar/celeste/assets/41147418/520aadf5-3d47-4f6c-a8fd-6e1211b153bb)
 
-# Stride
+# Celeste
 
 Take control of your finances with **Celeste**, the all-in-one budget and expense tracking application designed to simplify your money management. Whether you're saving for a dream vacation, paying off debt, or just want to stay on top of your daily spending, Celeste offers a suite of powerful tools to help you achieve your financial goals.
 
-## Key Features: 
+## Key Features
 
 - **Comprehensive Budgeting**: Set up monthly budgets tailored to your needs. Track your spending against these budgets in real time to ensure you stay within your limits.
 - **Expense Tracking**: Log your expenses effortlessly with our intuitive interface. Categorize your spending and add notes for a detailed financial record.
@@ -27,7 +28,7 @@ Take control of your finances with **Celeste**, the all-in-one budget and expens
 Before you begin, ensure you have met the following requirements:
 
 - Node.js and npm installed
-- Supabase account and project set up
+- Supabase account and project setup
 
 ### Installation
 
